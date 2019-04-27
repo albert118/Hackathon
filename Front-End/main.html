@@ -23,8 +23,7 @@
 	</head>
 	<body>
 		<div class="main-container">
-			<div id="stats">
-			</div>
+			
 			<div id="sidebar">
 				<div id="sidebar-toggler" class="sidebar-content" onclick="toggleSidebar()">
 						<i id="toggle-icon" class="fas fa-chevron-left"></i>
@@ -32,19 +31,33 @@
 				<h3 class="headings sidebar-content">Predicting Transport Demand</h3>
 				<ul id="top-menu" class="list-unstyled components">
 					<li class="sidebar-header">
-						<a href="#dashboards"><i class="fa fa-cog"></i><span>Filters</span></a>
+						<a href="#filters"><i class="fa fa-cog"></i><span>Filters</span></a>
 						<div class="content-"filters>
-							<form>
-								<input type="checkbox" name="filter1">
-									<label for="">Ins/Outs</label>
-								<input type="checkbox" name="filter1">
-									<label for="">Yearly</label>
-								<input type="checkbox" name="filter1">
-									<label for=""></label>
-								<input type="checkbox" name="filter1">
-									<label for="">filter 4</label>
-								<input type="checkbox" name="filter1">
-									<label for="">filter 5</label>
+							<form id="filters" class="sidebar-content">
+								<p>
+									<label>
+										<input type="checkbox">
+										<span>Filter 1</span>
+									</label>
+								</p>
+								<p>
+										<label>
+											<input type="checkbox">
+											<span>Filter 2</span>
+										</label>
+								</p>
+								<p>
+										<label>
+											<input type="checkbox">
+											<span>Filter 3</span>
+										</label>
+									</p>
+									<p>
+											<label>
+												<input type="checkbox">
+												<span>Filter 4</span>
+											</label>
+									</p>
 							</form>
 						</div>
 					</li>
@@ -54,6 +67,9 @@
 				</ul>
 			</div>
 			<div id="map"></div>
+			<div id="stats">
+
+			</div>
 		</div>
 		<script src="app.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDA6QqF0r91c7wUu2hjZ7eQGAz_msInodA&callback=initMap"
