@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <title>Display a map</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+    body { margin:0; padding:0; }
+    #map { position:absolute; top:0; bottom:0; width:100%; }
+
+    .mapboxgl-canvas-container.mapboxgl-interactive {cursor: initial;}
+    .mapboxgl-canvas-container.mapboxgl-touch-drag-pan .mapboxgl-canvas {touch-action: none;}
+    .mapboxgl-canvas-container.mapboxgl-interactive:active {cursor: initial;}
+    </style>
+  </head>
+  <body>
+
+    <div id='map'></div>
+    <script>
+
+      var sw = new mapboxgl.LngLat(150.69333046936686, -34.024318808594415);
+      var ne = new mapboxgl.LngLat(151.35188893349857, -33.6825009519346);
+
+      var llb = new mapboxgl.LngLatBounds(ne, sw);
+
+
+      mapboxgl.accessToken = 'pk.eyJ1IjoidmlzdWFsaXNlZGF0YSIsImEiOiJjanV6Nnd6YTExNWo2M3lsNmp5eWhoZGhwIn0.6irQa7Mq9wSLfnnOMGNMPQ';
+
+      var map = new mapboxgl.Map({
+        container: 'map', // container id
+        style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+        bounds: llb,
+        center: [151.02260970148222,  -33.88217418212192],// starting position [lng, lat]
+        zoom: 9, // starting zoom
+        pitchWithRotate: false,
+        dragRotate: false,
+        touchZoomRotate: false
+      });
+
+
+
+
+    </script>
+
+    <!-- <script>
+      var zoom = map.flyTo({
+        center: [151.00658600806184, -33.81905715653507],
+        zoom: 13,
+        bearing: 0,
+        speed: 0.5, // make the flying slow
+        curve: 1,
+        easing: function (t) { return t; }
+        });
+    </script> -->
+
+  </body>
+</html>
