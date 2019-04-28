@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Material Design for Bootstrap fonts and icons -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+
+		<!-- Material Design for Bootstrap CSS -->
+		<link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+		<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+		<link rel="stylesheet" href="style.css">
+		<title>Predicting Transport Demand</title>
+	</head>
+	<body>
+		<div class="main-container">
+			<div id="sidebar" class="div-shadow">
+				<div id="sidebar-toggler" class="sidebar-content" onclick="toggleSidebar()">
+						<i id="toggle-icon" class="fas fa-chevron-left"></i>
+				</div>
+				<h3 class="headings sidebar-content">MyTransport Analytics</h3>
+				<hr id="sidebar-hr">
+				<p class="sidebar-text">Some explanatory text...</p>
+				<ul id="top-menu" class="list-unstyled components">
+					<li class="sidebar-header">
+						<a href="#filters"><i class="fa fa-cog"></i><span>Overlay Filters</span></a>
+						<div class="filters-content">
+							<form class="sidebar-content">
+								<p>
+									<label>
+										<input id="population" type="radio" name="filter" value="pop"> 
+										<span class="sidebar-text">Population Data</span>
+									</label>
+								</p>
+								<p>
+										<label>
+											<input id="year" type="radio" name="filter" value="station-user">
+											<span class="sidebar-text">Station User I/O</span>
+										</label>
+								</p>
+								<p>
+										<label>
+											<input id="totaluser" type="radio" name="filter" value="totaluser">
+											<span class="sidebar-text">Total User Utilisation</span>
+										</label>
+									</p>
+							</form>
+						</div>
+					</li>
+					<li class="sidebar-header">
+							<a href="#planning-menu" data-toggle="collapse" aria-expanded="true" aria-controls="planning-menu"><i class="fa fa-bar-chart"></i><span>Summary Statistics</span></a>
+							<p class="sidebar-text">[Insert summaries]</p>
+					</li>
+				</ul>
+			</div>
+			<div id="map"></div>
+			<!-- <div id="stats">
+				<h3>Summary Statistics</h3>
+				<p>[INSERT ELEMENTS]</p>
+			</div> -->
+		</div>
+		<script src="app.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDA6QqF0r91c7wUu2hjZ7eQGAz_msInodA&callback=initMap"
+		async defer></script>
+		
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+		<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+		<script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+	</body>
+</html>
