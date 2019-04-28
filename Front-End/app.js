@@ -8,12 +8,14 @@ function initMap() {
 
 function toggleSidebar() {
   if ($("#sidebar").css("left") === "0px") {
-    $("#sidebar").css({left: -250});
+    $("#sidebar").css({left: -230});
     $("#toggle-icon").removeClass("fa-chevron-left");
     $("#toggle-icon").addClass("fa-chevron-right");
+    $("#sidebar-hr").hide();
   } else {
     $("#sidebar").css({left: 0});
     $("#toggle-icon").removeClass("fa-chevron-right");
     $("#toggle-icon").addClass("fa-chevron-left");
+    $("#sidebar-hr").show();
   }
 }
