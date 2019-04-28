@@ -101,6 +101,7 @@
 	top: 45%;
 	vertical-align: middle;
 	position: relative;
+	z-index: 80;
 }
 
 .sidebar-content {

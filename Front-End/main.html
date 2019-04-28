@@ -18,6 +18,22 @@
 
 		<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
+		<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+      body { margin:0; padding:0; }
+      #map { position:absolute; top:0; bottom:0; width:100%; }
+      circle { fill: lightskyblue; cx: 11; cy: 11; r: 11; transform: translate(-0.7em, 0.1em);}
+      g { fill: rgba(0,0,0,0); transform: scale(1.25, 1.25) translate(3.5px, 1.5px); }
+      svg {height: 27px}
+      svg:not(:root) { overflow: visible; }
+  
+  
+      .mapboxgl-canvas-container.mapboxgl-interactive {cursor: initial;}
+      .mapboxgl-canvas-container.mapboxgl-touch-drag-pan .mapboxgl-canvas {touch-action: none;}
+      .mapboxgl-canvas-container.mapboxgl-interactive:active {cursor: initial;}
+    </style>
+		
 		<link rel="stylesheet" href="style.css">
 		<title>Predicting Transport Demand</title>
 	</head>
@@ -29,7 +45,7 @@
 				</div>
 				<h3 class="headings sidebar-content">MyTransport Analytics</h3>
 				<hr id="sidebar-hr">
-				<p class="sidebar-text">Some explanatory text...</p>
+				<!-- <p class="sidebar-text">Some explanatory text...</p> -->
 				<ul id="top-menu" class="list-unstyled components">
 					<li class="sidebar-header">
 						<a href="#filters"><i class="fa fa-cog"></i><span>Overlay Filters</span></a>
@@ -58,19 +74,112 @@
 					</li>
 					<li class="sidebar-header">
 							<a href="#planning-menu" data-toggle="collapse" aria-expanded="true" aria-controls="planning-menu"><i class="fa fa-bar-chart"></i><span>Summary Statistics</span></a>
-							<p class="sidebar-text">[Insert summaries]</p>
+							<!-- <p class="sidebar-text">[Insert summaries]</p> -->
 					</li>
 				</ul>
 			</div>
-			<div id="map"></div>
+			<div id='map'></div>
+      <div id='marker'> </div>
 			<!-- <div id="stats">
 				<h3>Summary Statistics</h3>
 				<p>[INSERT ELEMENTS]</p>
 			</div> -->
 		</div>
 		<script src="app.js"></script>
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDA6QqF0r91c7wUu2hjZ7eQGAz_msInodA&callback=initMap"
-		async defer></script>
+		<script>
+
+      var sw = new mapboxgl.LngLat(150.69333046936686, -34.024318808594415);
+      var ne = new mapboxgl.LngLat(151.35188893349857, -33.6825009519346);
+
+      var llb = new mapboxgl.LngLatBounds(ne, sw);
+
+
+      mapboxgl.accessToken = 'pk.eyJ1IjoidmlzdWFsaXNlZGF0YSIsImEiOiJjanV6Nnd6YTExNWo2M3lsNmp5eWhoZGhwIn0.6irQa7Mq9wSLfnnOMGNMPQ';
+
+      var map = new mapboxgl.Map({
+        container: 'map', // container id
+        style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+        bounds: llb,
+        center: [151.02260970148222,  -33.88217418212192],// starting position [lng, lat]
+        zoom: 9, // starting zoom
+        pitchWithRotate: false,
+        dragRotate: false,
+        touchZoomRotate: false
+      });
+
+      //central
+      var marker = new mapboxgl.Marker()
+          .setOffset({x:0, y: -5})
+          .setLngLat([151.206670, -33.882749])
+          .addTo(map);
+      //redfern
+      var marker = new mapboxgl.Marker()
+          .setOffset({x:0, y: -5})
+          .setLngLat([151.19844, -33.892112])
+          .addTo(map);
+
+      //strathfield
+      var marker = new mapboxgl.Marker()
+      .setOffset({x:0, y: -5})
+      .setLngLat([151.094233,-33.8717015])
+      .addTo(map);
+
+      //lidcombe
+      var marker = new mapboxgl.Marker()
+      .setOffset({x:0, y: -5})
+      .setLngLat([151.0452425, -33.863813])
+      .addTo(map);
+
+      //auburn
+      var marker = new mapboxgl.Marker()
+      .setOffset({x:0, y: -5})
+      .setLngLat([151.0328107, -33.8493005])
+      .addTo(map);
+
+
+      //clyde
+      var marker = new mapboxgl.Marker()
+      .setOffset({x:0, y: -5})
+      .setLngLat([151.0170659, -33.835973])
+      .addTo(map);
+
+      //granville
+      var marker = new mapboxgl.Marker()
+      .setOffset({x:0, y: -5})
+      .setLngLat([151.01213808490024, -33.83291325597918])
+      .addTo(map);
+
+      // document.getElementById('#map');
+      // document.onclick = inputChange; function inputChange (e) {
+      //   console.log(map.getCenter());
+      // };
+      //
+      // var markers = document.getElementById('#marker');
+      // document.onclick = inputChange;
+      //
+      // function inputChange(e){
+      //   map.jumpTo({
+      //     center: marker.getLngLat(),
+      //     zoom: 20
+      //   });
+      // };
+
+
+
+    </script>
+
+    <!-- <script>
+      var zoom = map.flyTo({
+        center: [151.00658600806184, -33.81905715653507],
+        zoom: 13,
+        bearing: 0,
+        speed: 0.5, // make the flying slow
+        curve: 1,
+        easing: function (t) { return t; }
+        });
+    </script> -->
+		<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDA6QqF0r91c7wUu2hjZ7eQGAz_msInodA&callback=initMap"
+		async defer></script> -->
 		
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
