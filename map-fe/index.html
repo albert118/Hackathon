@@ -18,10 +18,8 @@
   </head>
   <body>
 
-    <div id='map'>
-      <div id='marker'> </div>
-    </div>
-
+    <div id='map'></div>
+    <div id='marker'> </div>
 
 
     <script>
@@ -45,27 +43,62 @@
         touchZoomRotate: false
       });
 
+      //central
       var marker = new mapboxgl.Marker()
           .setOffset({x:0, y: -5})
           .setLngLat([151.206670, -33.882749])
           .addTo(map);
-
+      //redfern
       var marker = new mapboxgl.Marker()
           .setOffset({x:0, y: -5})
-          .setLngLat([151.198458, -33.892108])
+          .setLngLat([151.19844, -33.892112])
           .addTo(map);
 
-      document.getElementById('#marker');
-      document.onclick = inputChange;
+      //strathfield
+      var marker = new mapboxgl.Marker()
+      .setOffset({x:0, y: -5})
+      .setLngLat([151.094233,-33.8717015])
+      .addTo(map);
 
-      function inputChange(e){
+      //lidcombe
+      var marker = new mapboxgl.Marker()
+      .setOffset({x:0, y: -5})
+      .setLngLat([151.0452425, -33.863813])
+      .addTo(map);
 
-        map.jumpTo({
-          center: marker.getLngLat(),
-          zoom: 20
-        });
+      //auburn
+      var marker = new mapboxgl.Marker()
+      .setOffset({x:0, y: -5})
+      .setLngLat([151.0328107, -33.8493005])
+      .addTo(map);
 
-      };
+
+      //clyde
+      var marker = new mapboxgl.Marker()
+      .setOffset({x:0, y: -5})
+      .setLngLat([151.0170659, -33.835973])
+      .addTo(map);
+
+      //granville
+      var marker = new mapboxgl.Marker()
+      .setOffset({x:0, y: -5})
+      .setLngLat([151.01213808490024, -33.83291325597918])
+      .addTo(map);
+
+      // document.getElementById('#map');
+      // document.onclick = inputChange; function inputChange (e) {
+      //   console.log(map.getCenter());
+      // };
+      //
+      // var markers = document.getElementById('#marker');
+      // document.onclick = inputChange;
+      //
+      // function inputChange(e){
+      //   map.jumpTo({
+      //     center: marker.getLngLat(),
+      //     zoom: 20
+      //   });
+      // };
 
 
 
