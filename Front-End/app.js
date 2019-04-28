@@ -8,7 +8,7 @@ function initMap() {
 
 function toggleSidebar() {
   if ($("#sidebar").css("left") === "0px") {
-    $("#sidebar").css({left: -230});
+    $("#sidebar").css({left: -260});
     $("#toggle-icon").removeClass("fa-chevron-left");
     $("#toggle-icon").addClass("fa-chevron-right");
     $("#sidebar-hr").hide();
