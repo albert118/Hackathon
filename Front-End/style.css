@@ -22,7 +22,7 @@
 	height: 100%;
 	left: 0px;
 	background-color: rgb(34, 42, 49); 
-	opacity: 0.95;
+	opacity: 0.93;
 	color: white;
 	transition: all 0.3s;
 	overflow-x: hidden;
@@ -98,7 +98,7 @@
 
 #sidebar-toggler {
 	float: right;
-	height: auto;
+	top: 45%;
 	vertical-align: middle;
 	position: relative;
 }
@@ -139,7 +139,8 @@ hr {
 .sidebar-header > a {
 	display: block;
 	text-decoration: none;
-	padding: 10px 0;
+	padding: 10px 0 10px 0;
+	margin: 3px 25px 0 0;
 	/*border-top: 1px solid #939398;*/
 }
 
