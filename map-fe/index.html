@@ -9,6 +9,10 @@
     <style>
     body { margin:0; padding:0; }
     #map { position:absolute; top:0; bottom:0; width:100%; }
+    circle { fill: lightskyblue; cx: 11; cy: 11; r: 11; transform: translate(-0.7em, 0.1em);}
+    g { fill: rgba(0,0,0,0); transform: scale(1.25, 1.25) translate(3.5px, 1.5px); }
+    svg {height: 27px}
+    svg:not(:root) { overflow: visible; }
 
 
     .mapboxgl-canvas-container.mapboxgl-interactive {cursor: initial;}
@@ -40,66 +44,103 @@
         zoom: 9, // starting zoom
         pitchWithRotate: false,
         dragRotate: false,
-        touchZoomRotate: false
+        touchZoomRotate: false,
+        maxZoom: 20
       });
+
 
       //central
       var marker = new mapboxgl.Marker()
-          .setOffset({x:0, y: -5})
+          .setOffset({x:0,y: 0})
           .setLngLat([151.206670, -33.882749])
           .addTo(map);
       //redfern
       var marker = new mapboxgl.Marker()
-          .setOffset({x:0, y: -5})
+          .setOffset({x:0,y: 0})
           .setLngLat([151.19844, -33.892112])
           .addTo(map);
 
       //strathfield
       var marker = new mapboxgl.Marker()
-      .setOffset({x:0, y: -5})
+      .setOffset({x:0,y: 0})
       .setLngLat([151.094233,-33.8717015])
       .addTo(map);
 
       //lidcombe
       var marker = new mapboxgl.Marker()
-      .setOffset({x:0, y: -5})
+      .setOffset({x:0,y: 0})
       .setLngLat([151.0452425, -33.863813])
       .addTo(map);
 
       //auburn
       var marker = new mapboxgl.Marker()
-      .setOffset({x:0, y: -5})
+      .setOffset({x:0,y: 0})
       .setLngLat([151.0328107, -33.8493005])
       .addTo(map);
 
 
       //clyde
       var marker = new mapboxgl.Marker()
-      .setOffset({x:0, y: -5})
+      .setOffset({x:0,y: 0})
       .setLngLat([151.0170659, -33.835973])
       .addTo(map);
 
       //granville
       var marker = new mapboxgl.Marker()
-      .setOffset({x:0, y: -5})
-      .setLngLat([151.01213808490024, -33.83291325597918])
+      .setOffset({x:0,y: 0})
+      .setLngLat([151.0121496,-33.832905])
       .addTo(map);
 
-      // document.getElementById('#map');
-      // document.onclick = inputChange; function inputChange (e) {
-      //   console.log(map.getCenter());
-      // };
-      //
-      // var markers = document.getElementById('#marker');
-      // document.onclick = inputChange;
-      //
-      // function inputChange(e){
-      //   map.jumpTo({
-      //     center: marker.getLngLat(),
-      //     zoom: 20
-      //   });
-      // };
+      //harris park
+      var marker = new mapboxgl.Marker()
+      .setOffset({x:0,y: 0})
+      .setLngLat([151.0076473, -33.8233005])
+      .addTo(map);
 
+      //Parramatta
+      var marker = new mapboxgl.Marker()
+      .setOffset({x:0,y: 0})
+      .setLngLat([151.0054012, -33.8175104])
+      .addTo(map);
+
+      map.on('load', function() {
+  map.addLayer({
+  'id': 'lines',
+  'type': 'line',
+  'source': {
+  'type': 'geojson',
+  'data': {
+  'type': 'FeatureCollection',
+  'features': [{
+  'type': 'Feature',
+  'properties': {
+  'color': 'dodgerblue' // red
+  },
+  'geometry': {
+  'type': 'LineString',
+  'coordinates': [
+    [151.206670, -33.882749],
+    [151.19844, -33.892112],
+    [151.094233,-33.8717015],
+    [151.0452425, -33.863813],
+    [151.0328107, -33.8493005],
+    [151.0170659, -33.835973],
+    [151.0121496,-33.832905],
+    [151.0076473, -33.8233005],
+    [151.0054012, -33.8175104]
+  ]
+  }
+  }]
+  }
+  },
+  'paint': {
+  'line-width': 2,
+  // Use a get expression (https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-get)
+  // to set the line-color to a feature property value.
+  'line-color': ['get', 'color']
+  }
+  });
+  });
 
 
     </script>
