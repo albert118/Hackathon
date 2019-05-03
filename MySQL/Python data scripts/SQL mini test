@@ -1,0 +1,11 @@
+select year_val, district, pop_prediction from population_predictions;
+
+select year_val, station, entries_daily_avg from station_yearly_aggregates;
+
+select year_val, line_val, year_aggregate_vals from yearly_aggregate_users;
+
+
+
+STACK : mapbox, react, HTML, CSS, Python, MySQL
+
+mismatch between estimates and transport trends
